@@ -3,10 +3,12 @@ import pg from "pg";
 import crypto from "node:crypto";
 
 const { ADMIN_USER, ADMIN_PASS, ADMIN_KEY, DATABASE_URL, SESSION_SECRET, PORT = 3000 } = process.env;
+
 if (!ADMIN_USER || !ADMIN_PASS || !ADMIN_KEY || !DATABASE_URL || !SESSION_SECRET) {
   console.error("Waa la waayay: ADMIN_USER, ADMIN_PASS, ADMIN_KEY, DATABASE_URL, SESSION_SECRET");
   process.exit(1);
 }
+
 if (SESSION_SECRET.length < 24 || ADMIN_PASS.length < 8) {
   console.error("SESSION_SECRET waa inuu ahaadaa 24+ xaraf, ADMIN_PASS 8+ xaraf.");
   process.exit(1);
